@@ -1,0 +1,181 @@
+/* --- RESET E VARIABILI APPLE STYLE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root {
+    --bg-global: #f5f5f7;       /* Il classico grigio chiarissimo dei siti Apple */
+    --bg-card: #ffffff;         /* Bianco puro per i moduli e le schede */
+    --text-main: #1d1d1f;       /* Nero fumo accattivante, mai nero puro */
+    --text-muted: #86868b;      /* Grigio per i sottotitoli e testi secondari */
+    --apple-blue: #0066cc;      /* Il blu di accento Apple ufficiale */
+    --apple-blue-hover: #0077ed;
+    --border-color: #d2d2d7;    /* Grigio leggero per i bordi sottili */
+    --radius: 10px;             /* Arrotondamento morbido tipico di iOS/macOS */
+}
+
+body {
+    background-color: var(--bg-global);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- NAVBAR FISSA --- */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8); /* Effetto semi-trasparente */
+    backdrop-filter: blur(20px);                /* Sfocatura dello sfondo stile iOS */
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: -0.5px;
+}
+
+.status-badge {
+    background-color: #e8e8ed;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--apple-blue);
+}
+
+/* --- AREA DI CONTENUTO PRINCIPALE --- */
+main#app {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+/* --- STRUTTURA DEL MODULO (CARD) --- */
+.login-container {
+    width: 100%;
+    max-width: 380px;
+}
+
+.login-card {
+    background-color: var(--bg-card);
+    padding: 36px 32px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Ombra leggerissima, quasi impercettibile */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 32px;
+}
+
+/* --- CAMPI DI INPUT --- */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Input leggermente meno arrotondati della card */
+    color: var(--text-main);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Effetto di focus pulito senza bordi pacchiani */
+.input-group input:focus {
+    border-color: var(--apple-blue);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* --- PULSANTI (I PROTAGONISTI) --- */
+button {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Di default occupa lo spazio, lo gestiremo nei moduli */
+    border: none;
+}
+
+/* Pulsante Standard / "OK" (Tutto Blu) */
+button.btn-primary, button[type="submit"] {
+    background-color: var(--apple-blue);
+    color: #ffffff;
+}
+
+button.btn-primary:hover, button[type="submit"]:hover {
+    background-color: var(--apple-blue-hover);
+}
+
+/* Pulsante Secondario / "CANCEL" (Bianco con bordo e testo blu) */
+button.btn-secondary {
+    background-color: #ffffff;
+    color: var(--apple-blue);
+    border: 1px solid var(--apple-blue);
+}
+
+button.btn-secondary:hover {
+    background-color: rgba(0, 102, 204, 0.05); /* Un velo di blu al passaggio */
+}
+
+/* Contenitore per affiancare i bottoni quando servirà */
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* --- MESSAGGI DI NOTIFICA --- */
+.message {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.error { color: #ff3b30; }     /* Rosso Apple standard */
+.success { color: #34c759; }   /* Verde Apple standard */
